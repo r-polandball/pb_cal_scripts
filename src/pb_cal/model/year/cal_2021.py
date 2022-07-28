@@ -19,7 +19,7 @@ class Cal_2021(calendar.Calendar):
     '''
     def is_daily_panel(self, imgur_image):
         # Everything in this album except the cover is a daily panel
-        return len(imgur_image.caption.split('\n')) > 1
+        return len(imgur_image.caption.split('\n')) > 1 and (not "The /r/Polandball 2021 Daily Calendar" in imgur_image.caption)
 
 
     '''
