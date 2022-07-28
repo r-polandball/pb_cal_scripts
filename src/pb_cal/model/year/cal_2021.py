@@ -28,11 +28,11 @@ class Cal_2021(calendar.Calendar):
     '''
     def to_daily_panel(self, imgur_image, datetime_date):
         # Get the part before "By" and then replace all whitespace (such as newlines) with a single space
-        description = imgur_image.caption.split("By")[0].strip()
+        description = imgur_image.caption.split("Created by ")[0].strip()
         description = ' '.join(description.split())
 
         # Get the creator or list of creators (some have multiple creators)
-        creator_text = imgur_image.caption.split("By")[-1].strip()
+        creator_text = imgur_image.caption.split("Created by ")[-1].strip()
         creator_list = creator_text.split(',')
         for i in range(0, len(creator_list)):
             creator_list[i] = creator_list[i].split("u/")[-1]
