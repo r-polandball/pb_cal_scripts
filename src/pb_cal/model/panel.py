@@ -9,8 +9,10 @@ class Day_Panel:
     - description - a string describing the event depicted
     - creators - list, reddit username(s) of the panel creator(s) (without "u/")
     - image_url - string, imgur URL of the actual panel image
+    - reference_lnk - (only required for CAL 2023) string, URL to any website, describes what the event is
+    - long_description - (optional) string, a long blob of text describing the panel
     '''
-    def __init__(self, date, description, creators, image_url):
+    def __init__(self, date, description, creators, image_url, reference_link=None, long_description=None):
         if isinstance(date, datetime.date):
             self.date = date
         else:
@@ -33,6 +35,18 @@ class Day_Panel:
             # Buuuut again, this is already overkill for such a simple and stupid script...
             raise ValueError("image_url must be a valid URL")
 
+        if isinstance(reference_link, str) or reference_link == None:
+            self.reference_link = reference_link
+        else:
+            # Techcnically we only checked if it's a valid string, not a valid URL
+            # Buuuut again, this is already overkill for such a simple and stupid script...
+            raise ValueError("reference_link must be a valid URL")
+
+        if isinstance(long_description, str) or long_description == None:
+            self.long_description = long_description
+        else:
+            raise ValueError("long_description must be a valid string")
+
         return None
 
 
@@ -41,7 +55,9 @@ class Day_Panel:
             "date": self.date,
             "description": self.description,
             "creator(s)": ';'.join(self.creators),
-            "image_url": self.image_url
+            "image_url": self.image_url,
+            "reference_link": self.reference_link,
+            "long_description": self.long_description,
         }
 
 

@@ -4,6 +4,7 @@ from pb_cal.model.year.cal_2019 import *
 from pb_cal.model.year.cal_2020 import *
 from pb_cal.model.year.cal_2021 import *
 from pb_cal.model.year.cal_2022 import *
+from pb_cal.model.year.cal_2023 import *
 
 
 
@@ -33,6 +34,7 @@ def to_dataframe(panel_list):
 # Actual main execution of fetching cal data
 if __name__ == "__main__":
 
+    '''
     cal_2019 = Cal_2019()
     write_csv_files(cal_2019)
 
@@ -44,3 +46,7 @@ if __name__ == "__main__":
 
     cal_2022 = Cal_2022()
     write_csv_files(cal_2022)
+    '''
+
+    cal_2023 = Cal_2023()
+    write_csv_files(cal_2023)
